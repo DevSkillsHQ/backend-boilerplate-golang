@@ -1,18 +1,16 @@
-// +build ignore
-
 package main
 
 import (
-    "fmt"
-    "log"
-    "net/http"
+	"fmt"
+	"log"
+	"net/http"
 )
 
-func handler(w http.ResponseWriter, r *http.Request) {
-    fmt.Fprintf(w, "pong")
+func handler(w http.ResponseWriter, _ *http.Request) {
+	fmt.Fprintf(w, "pong")
 }
 
 func main() {
-    http.HandleFunc("/ping", handler)
-    log.Fatal(http.ListenAndServe(":8080", nil))
+	http.HandleFunc("/ping", handler)
+	log.Fatal(http.ListenAndServe(":8080", nil))
 }
